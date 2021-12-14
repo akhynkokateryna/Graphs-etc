@@ -39,7 +39,7 @@ def color_search(edges,colors):
     game_is_completed=True
 
     for edge in edges:
-        if colors[edge[0]] == colors[edge[1]]:
+        if colors[edge[0]] == colors[edge[1]] and colors[edge[1]] in ['r','g','b']:
             return None
         if colors[edge[0]] == 0 or colors[edge[1]] == 0:
             game_is_completed = False
@@ -53,14 +53,14 @@ def color_search(edges,colors):
 
             colors[edge[1]] = color_options[0]
             result1 = color_search(edges,colors)
-
+            if result1 != None:
+                return result1
+            
             colors[edge[1]] = color_options[1]
             result2 = color_search(edges,colors)
-
             if result2 != None:
                 return result2
-            if result1 != None:
-                return result2
+
             break
 
         if colors[edge[0]] == 0 and colors[edge[1]] != 0:
@@ -68,17 +68,18 @@ def color_search(edges,colors):
 
             colors[edge[0]] = color_options[0]
             result1 = color_search(edges,colors)
+            if result1 != None:
+                return result1
 
             colors[edge[0]] = color_options[1]
             result2 = color_search(edges,colors)
-
             if result2 != None:
                 return result2
-            if result1 != None:
-                return result2
+
             break
 
 if __name__=="__main__":
-    graph=read_csv('/mnt/c/Users/vovak/OneDrive/Робочий стіл/Мініпроект з дискретки/graph.csv')
-    print(graph)
+    # graph=read_csv('/mnt/c/Users/vovak/OneDrive/Документи/GitHub/Graphs-etc/graph.csv')
+    graph=[(i,i+1) for i in range (990)]+[(i,i-2) for i in range (2,990)]
+    # print(graph)
     find_coloring(graph)
