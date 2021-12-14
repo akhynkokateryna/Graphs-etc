@@ -79,7 +79,6 @@ def color_search(edges,colors):
             break
 
 if __name__=="__main__":
-    # graph=read_csv('/mnt/c/Users/vovak/OneDrive/Документи/GitHub/Graphs-etc/graph.csv')
     graph=[(i,i+1) for i in range (990)]+[(i,i-2) for i in range (2,990)]
     # print(graph)
     find_coloring(graph)
