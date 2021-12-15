@@ -1,9 +1,19 @@
 def read_csv(path):
-    res=[]
+    res={}
+    
+    oriented=input('Your graph is oriented?(y/n)')
+    while oriented not in ['y','n']:
+        oriented=input('Incorrect input. Your graph is oriented?(y/n)')
+    if oriented=='y':
+        oriented=True
+    else:
+        oriented=False
+    
     with open(path, 'r',encoding='utf-8') as file:
         file.readline()
         for line in file:
-            res.append((line.split(',')[0].strip(),line.split(',')[1].strip()))
+            line=line.split(',')
+            res[line[0]]=res.get(line[0],[])+[line[1]]
     return res
 
 def create_colour_dict(edges):
