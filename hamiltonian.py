@@ -1,5 +1,3 @@
-import random
-
 def read_csv(path):
     res={}
     
