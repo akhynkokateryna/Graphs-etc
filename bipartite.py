@@ -24,7 +24,6 @@ def read_csv(path):
 
 
 res = read_csv("C:/Users/HP/Desktop/work/descrete/project/task7_data/task7_data/bipartie/bipartie_5000_3126273_try3.csv")
-# res = {'a': ['b', 'c'], 'b': ['a', 'd', 'e'], 'c': ['a', 'm'], 'd': ['b'], 'e': ['b'], 'm': ['c']}
 
 
 def two_parts(vert_dict):
