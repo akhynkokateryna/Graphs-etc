@@ -2,7 +2,8 @@
 
 
 def bipartite(vert_dict: dict) -> bool:
-    """Divides all vertices of connected non directed graph into two parts
+    """
+    Divides all vertices of connected non directed graph into two parts
     and if that can be done, graph is bipartite
 
     Args:
