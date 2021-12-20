@@ -23,9 +23,10 @@ def bipartite(vert_dict: dict) -> bool:
     """
     red = []
     blue = []
-    vertices = list(vert_dict.keys())
-    red += vertices[0]
-    for vertice in vertices:
+    for vertice in vert_dict:
+        red += vertice
+        break
+    for vertice in vert_dict:
         if vertice in red:
             for item in vert_dict[vertice]:
                 if item not in red:
