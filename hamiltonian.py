@@ -4,7 +4,7 @@ def search(stack,graph):
     if len(stack)==len(graph)+1:
         return stack
     if len(stack)==len(graph):
-        pos_opt=set(graph[stack[-1]]) & set(stack[0])
+        pos_opt=set(graph[stack[-1]])-set(stack[1:-1])
     else:
         pos_opt=set(graph[stack[-1]])-set(stack[:-1])
     if pos_opt==set():
