@@ -6,7 +6,6 @@ def from_dict(G):
     return links
 
 def odd_degree_nodes(G):
-        odd_degree_nodes = []
         for u in G:
             if len(G[u]) % 2 != 0:
                 return False
