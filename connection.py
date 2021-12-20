@@ -1,5 +1,10 @@
 def connection(graph1):
     graph=graph1.copy()
+
+    for vertice in graph:
+            for vert in graph[vertice]:
+                graph[vert].append(vertice)
+    
     for i in graph:
         vert={i}
         break
