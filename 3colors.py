@@ -22,7 +22,7 @@ def find_coloring(graph,oriented=False):
         for vertice in graph:
             for vert in graph[vertice]:
                 graph[vert].append(vertice)
-    
+
     coloring={}
     for i in graph:
         coloring[i]='r'
@@ -44,10 +44,14 @@ def find_coloring(graph,oriented=False):
             basis=stack[-1]
             stack.pop()
             for j in graph:
-                if set(graph[j]) & set(coloring) == set():
-                    stack.append(basis+(j,'r'))
-                    stack.append(basis+(j,'g'))
-                    stack.append(basis+(j,'b'))
+                if j not in coloring:
+                    possible_colors=['r','g','b']
+                    for k1 in graph[j]:
+                        if k1 in coloring:
+                            possible_colors.remove(coloring[k1])
+                            break
+                    for k2 in possible_colors:
+                        stack.append(basis+[(j,k2)])
                     break
         else:
             if len(coloring)==len(graph):
@@ -61,8 +65,12 @@ def find_coloring(graph,oriented=False):
                             possible_colors.remove(coloring[k1])
                             break
                     for k2 in possible_colors:
-                        stack.append((j,k2))
+                        stack.append([(j,k2)])
                     break
+        
+        if stack==[]:
+            print('There is no solution')
+            return False
         
         for k in stack[-1]:
             coloring[k[0]]=k[1]
@@ -70,8 +78,8 @@ def find_coloring(graph,oriented=False):
     return coloring.items()
 
 if __name__=="__main__":
-    graph=input.read_csv('graph.csv')
+    graph=input.read_csv('/mnt/c/Users/user/Downloads/colour_tes.csv')
     result = find_coloring(graph)
     if result:
-        for i in sorted(result, key= lambda x: int(x[0])):
+        for i in sorted(result):
             print(f'{i[0]} - {i[1]}')
