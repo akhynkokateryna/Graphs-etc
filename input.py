@@ -15,4 +15,9 @@ def read_csv(path):
             res[line[0]]=res.get(line[0],[])+[line[1]]
             if not oriented:
                 res[line[1]]=res.get(line[1],[])+[line[0]]
+            else:
+                res[line[1]]=res.get(line[1],[])
     return res
+
+if __name__=='__main__':
+    print(read_csv('/mnt/c/Users/vovak/Downloads/isomorphic_6_16_try1.csv'))
