@@ -5,15 +5,10 @@ def from_dict(G):
             links.append((u,v))
     return links
 
-def odd_degree_nodes(G):
-        for u in G:
-            if len(G[u]) % 2 != 0:
-                return False
-        return True
-
 def fleury(G):
-    if not odd_degree_nodes(G):
-        return 'Not Eulerian Graph'
+    for item in G:
+        if len(G[item]) % 2 != 0:
+            return 'Not Eulerian Graph'
     trail = []
     u = list(G)[0]
     while len(from_dict(G)) > 0:
@@ -21,7 +16,7 @@ def fleury(G):
         for u in G[current_vertex]:
             G[current_vertex].remove(u)
             G[u].remove(current_vertex)
-            bridge = not is_connected(G)
+            bridge = not connection(G)
             if bridge:
                 G[current_vertex].append(u)
                 G[u].append(current_vertex)
