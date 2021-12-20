@@ -13,12 +13,12 @@ def izomorph(graph1,graph2):
     
     graphch1=graph1.copy()
     graphch2=graph2.copy()
-    for i in list(graphch1):
-        for j in list(graphch2):
-            if i in graphch1 and j in graphch2:
-                if len(graphch1[i])==len(graphch2[j]):
-                    del graphch1[i]
-                    del graphch2[j]
+    for vertex1 in list(graphch1):
+        for vertex2 in list(graphch2):
+            if vertex1 in graphch1 and vertex2 in graphch2:
+                if len(graphch1[vertex1])==len(graphch2[vertex2]):
+                    del graphch1[vertex1]
+                    del graphch2[vertex2]
     if graphch1!={} or graphch2!={}:
         return False
 
