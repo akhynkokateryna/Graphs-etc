@@ -1,19 +1,5 @@
 # from copy import copy
 
-def is_connected(G):
-    start_node = list(G)[0]
-    color = {v: 'white' for v in G}
-    color[start_node] = 'gray'
-    S = [start_node]
-    while len(S) != 0:
-        u = S.pop()
-        for v in G[u]:
-            if color[v] == 'white':
-                color[v] = 'gray'
-                S.append(v)
-            color[u] = 'black'
-    return list(color.values()).count('black') == len(G)
-
 
 # print(odd_degree_nodes({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
 
