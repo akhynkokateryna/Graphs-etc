@@ -21,8 +21,9 @@ def bipartite(vert_dict: dict) -> bool:
     False
 
     """
-    red = []
     blue = []
+    fuck_up = []
+    red = []
     for vertice in vert_dict:
         red += vertice
         break
@@ -33,10 +34,28 @@ def bipartite(vert_dict: dict) -> bool:
                     blue += vert_dict[vertice]
                 else:
                     return False
-        else:
+        elif vertice in blue:
             for item in vert_dict[vertice]:
                 if item not in blue:
                     red += vert_dict[vertice]
                 else:
                     return False
+        else:
+            fuck_up += vertice
+
+
+        if len(fuck_up) != 0:
+            for vertice in fuck_up:
+                if vertice in red:
+                    for item in vert_dict[vertice]:
+                        if item not in red:
+                            blue += vert_dict[vertice]
+                        else:
+                            return False
+                elif vertice in blue:
+                    for item in vert_dict[vertice]:
+                        if item not in blue:
+                            red += vert_dict[vertice]
+                        else:
+                            return False
     return True
