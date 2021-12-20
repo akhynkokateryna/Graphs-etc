@@ -23,7 +23,7 @@ def izomorph(graph1,graph2):
         return False
 
     graph_lst1=tuple(graph1)
-    graph_lst2=list(graph2)
+    graph_lst2=tuple(graph2)
     for i in itertools.permutations(graph_lst2):
         dct1={i[k1]:graph_lst1[k1] for k1 in range(len(graph1))}
         option={dct1[k]: set([dct1[j] for j in graph2[k]]) for k in graph_lst2}
