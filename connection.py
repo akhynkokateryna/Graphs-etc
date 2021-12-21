@@ -3,8 +3,9 @@ def connection(graph1):
 
     for vertice in graph:
             for vert in graph[vertice]:
-                graph[vert].append(vertice)
-    
+                if vertice not in graph[vert]:
+                    graph[vert].append(vertice)
+
     for i in graph:
         vert={i}
         break
@@ -17,3 +18,7 @@ def connection(graph1):
         if graph==graph1:
             return False
     return True
+
+if __name__=='__main__':
+    # graph={5:[6],8:[6,10],10:[8],6:[5,8]}
+    # print(connection(graph))
