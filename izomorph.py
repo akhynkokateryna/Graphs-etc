@@ -1,7 +1,25 @@
+"""
+Module checking two graphs for isomorphism
+"""
 import connection
 import itertools
+
+
+
+def izomorph(graph1: dict, graph2: dict) -> bool:
+    """Check if two graphs are isomorphic.
+
+    Args:
+        graph1 (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
     
-def izomorph(graph1,graph2):
+        graph2 (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+    
+    Returns:
+        bool: True if isomorphic and False if not
+    
+    """
     graph1={i:set(k) for i,k in graph1.items()}
     graph2={i:set(k) for i,k in graph2.items()}
     if not connection.connection(graph1) or not connection.connection(graph2):
@@ -10,7 +28,7 @@ def izomorph(graph1,graph2):
 
     if len(graph1)!=len(graph2):
         return False
-    
+
     graphch1=graph1.copy()
     graphch2=graph2.copy()
     for vertex1 in list(graphch1):
@@ -31,7 +49,7 @@ def izomorph(graph1,graph2):
             return True
     return False
 
-    
+
 
 # if __name__=='__main__':
     # import input
