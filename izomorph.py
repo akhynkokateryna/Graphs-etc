@@ -5,7 +5,6 @@ import connection
 import itertools
 
 
-
 def izomorph(graph1: dict, graph2: dict) -> bool:
     """Check if two graphs are isomorphic.
 
@@ -19,12 +18,20 @@ def izomorph(graph1: dict, graph2: dict) -> bool:
     Returns:
         bool: True if isomorphic and False if not
     
+    >>> print(izomorph({'a': ['b', 'e'], 'b': ['a', 'e'], 'c': ['d', 'e'], 'd': ['c', 'e'], 'e': ['a', 'b', 'c', 'd']},\
+                       {1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
+    True
+
+    >>> print(izomorph({5:[6, 10],8:[6,10],10:[8],6:[5,8]}, {1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
+    False
+
     """
-    graph1={i:set(k) for i,k in graph1.items()}
-    graph2={i:set(k) for i,k in graph2.items()}
     if not connection.connection(graph1) or not connection.connection(graph2):
         print('Wrong type of graph')
         return False
+
+    graph1={i:set(k) for i,k in graph1.items()}
+    graph2={i:set(k) for i,k in graph2.items()}
 
     if len(graph1)!=len(graph2):
         return False
