@@ -19,6 +19,6 @@ def connection(graph1):
             return False
     return True
 
-if __name__=='__main__':
+# if __name__=='__main__':
     # graph={5:[6],8:[6,10],10:[8],6:[5,8]}
     # print(connection(graph))
