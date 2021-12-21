@@ -20,4 +20,4 @@ def read_csv(path):
     return res
 
 if __name__=='__main__':
-    print(read_csv('/mnt/c/Users/vovak/Downloads/isomorphic_6_16_try1.csv'))
+    # print(read_csv('/mnt/c/Users/user/Downloads/isomorphic_6_16_try1.csv'))
