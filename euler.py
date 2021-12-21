@@ -1,6 +1,10 @@
 import connection
 
 def from_dict(G):
+    """
+    Returns the list of tuples of ribs, that 
+    is used below for passing all the ribs
+    """
     links = []
     for u in G:
         for v in G[u]:
@@ -8,6 +12,9 @@ def from_dict(G):
     return links
 
 def fleury(G):
+    """
+    fleury algorithm
+    """
     for item in G:
         if len(G[item]) % 2 != 0:
             return 'Not Eulerian Graph'
