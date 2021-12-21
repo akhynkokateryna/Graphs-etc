@@ -1,4 +1,19 @@
-def read_csv(path):
+"""
+Module reading csv and checking for (non)oriented graphs.
+"""
+
+
+def read_csv(path: str) -> dict:
+    """Convert a csv-file into dictionary and checks if graph is oriented or not.
+
+    Args:
+        path (str): a path to a csv-file with edges of graph
+
+    Returns:
+        dict: a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+
+    """
     res={}
     
     oriented=input('Your graph is oriented?(y/n)')
