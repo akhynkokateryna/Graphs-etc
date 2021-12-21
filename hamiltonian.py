@@ -42,7 +42,9 @@ def hamiltonian(graph: dict) -> list:
 
     Returns:
         list: if Hamiltonian circuit exists or False if there`s no one
-
+    
+    >>> print(hamiltonian({'a': ['b', 'c'], 'b': ['a', 'c'], 'c': ['a','b']}))
+    ['a', 'b', 'c', 'a']
     """
     for i in graph:
         stack_start=[i]
