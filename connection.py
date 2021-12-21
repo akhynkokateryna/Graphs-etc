@@ -1,4 +1,23 @@
-def connection(graph1):
+"""
+Module checking whether graph is connected or not.
+"""
+
+
+def connection(graph1: dict) -> bool:
+    """Check if graph is connected.
+    Args:
+        graph1 (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+
+    Returns:
+        bool: True if connected and False if not
+    
+    >>> print(connection({5:[6, 10],8:[6,10],10:[8],6:[5,8], 7:[]}))
+    False
+
+    >>> print(connection({5:[6, 10],8:[6,10],10:[8],6:[5,8]}))
+    True
+    """
     graph=graph1.copy()
 
     for vertice in graph:
