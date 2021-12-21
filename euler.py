@@ -36,5 +36,5 @@ def fleury(G):
     list_of.append(list_of[0])
     return list_of
 
-if __name__=='__main__':
+# if __name__=='__main__':
     # print(fleury({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
