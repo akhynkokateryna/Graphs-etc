@@ -1,6 +1,23 @@
+"""
+Module finding Hamiltonian circuits in graphs.
+"""
 import input
 
-def search(stack,graph):
+
+def search(stack: list, graph: dict) -> list:
+    """Additional fucntion to look for Hamiltonian circuit in graph.
+
+    Args:
+        stack (list): the list with the initial vertex,
+        the possible Hamiltonian circuit will be saved in it
+
+        graph (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+
+    Returns:
+        list: if Hamiltonian circuit exists or False if it doesn`t
+
+    """
     if len(stack)==len(graph)+1:
         return stack
     if len(stack)==len(graph):
@@ -16,12 +33,22 @@ def search(stack,graph):
     return False
 
 
-def hamiltonian(graph):
+def hamiltonian(graph: dict) -> list:
+    """Look for Hamiltonian circuit.
+
+    Args:
+        graph (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+
+    Returns:
+        list: if Hamiltonian circuit exists or False if there`s no one
+
+    """
     for i in graph:
         stack_start=[i]
         break
     return search(stack_start,graph)
-    
+
 # if __name__=='__main__':
     # graph=input.read_csv('graph.py')
     # print(hamiltonian(graph))
