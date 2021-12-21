@@ -78,8 +78,8 @@ def find_coloring(graph,oriented=False):
     return coloring.items()
 
 if __name__=="__main__":
-    graph=input.read_csv('/mnt/c/Users/user/Downloads/colour_tes.csv')
-    result = find_coloring(graph)
-    if result:
-        for i in sorted(result):
-            print(f'{i[0]} - {i[1]}')
+    # graph=input.read_csv('/mnt/c/Users/user/Downloads/colour_tes.csv')
+    # result = find_coloring(graph)
+    # if result:
+    #     for i in sorted(result):
+    #         print(f'{i[0]} - {i[1]}')
