@@ -22,6 +22,6 @@ def hamiltonian(graph):
         break
     return search(stack_start,graph)
     
-    if __name__=='__main__':
-    graph=input.read_csv('graph.py')
-    print(hamiltonian(graph))
+if __name__=='__main__':
+    # graph=input.read_csv('graph.py')
+    # print(hamiltonian(graph))
