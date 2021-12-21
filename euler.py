@@ -1,3 +1,5 @@
+import connection
+
 def from_dict(G):
     links = []
     for u in G:
@@ -10,13 +12,14 @@ def fleury(G):
         if len(G[item]) % 2 != 0:
             return 'Not Eulerian Graph'
     trail = []
-    u = list(G)[0]
+    for u in G:
+        break
     while len(from_dict(G)) > 0:
         current_vertex = u
         for u in G[current_vertex]:
             G[current_vertex].remove(u)
             G[u].remove(current_vertex)
-            bridge = not connection(G)
+            bridge = not connection.connection(G)
             if bridge:
                 G[current_vertex].append(u)
                 G[u].append(current_vertex)
@@ -33,4 +36,5 @@ def fleury(G):
     list_of.append(list_of[0])
     return list_of
 
-print(fleury({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
+if __name__=='__main__':
+    # print(fleury({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
