@@ -19,5 +19,5 @@ def read_csv(path):
                 res[line[1]]=res.get(line[1],[])
     return res
 
-if __name__=='__main__':
+# if __name__=='__main__':
     # print(read_csv('/mnt/c/Users/user/Downloads/isomorphic_6_16_try1.csv'))
