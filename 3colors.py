@@ -1,6 +1,26 @@
+"""
+Module coloring all vertexes in graphs three colours.
+"""
 import input
 
-def search(graph,coloring):
+
+def search(graph: dict,coloring: dict) -> dict:
+    """Build suggestion pairs vertex-colour and choose the right one, if exists.
+
+    Args:
+        graph (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+    
+        coloring (dict): a dictionary with already coloured vertexes as keys and
+        colours as values
+    
+    Returns:
+        dict: an updated dictionary if such coloring option exists, else Fasle
+
+    >>> print(search({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}, {1: 'r', 2: 'g'}))
+    {1: 'r', 2: 'g', 5: 'b'}
+
+    """
     vertices=list(coloring.keys())
     for i in vertices:
         for j in vertices:
@@ -17,7 +37,22 @@ def search(graph,coloring):
                     return False
     return coloring
 
-def find_coloring(graph,oriented=False):
+
+def find_coloring(graph: dict,oriented=False):
+    """Colour all vertexes in the graph.
+
+    Args:
+        graph (dict): a dictionary with vertexes as keys and
+        lists of adjacent vertexes as values
+    
+        oriented (the default is False): whether graph is oriented or not.
+    
+    Returns:
+        dict_items: list with tuples (vertex, colour)
+
+    >>> print(find_coloring({1: [2, 5], 2: [1, 5], 3: [4, 5], 4: [3, 5], 5: [1, 2, 3, 4]}))
+    dict_items([(1, 'r'), (2, 'g'), (5, 'b'), (3, 'r'), (4, 'r')])
+    """
     if oriented:
         for vertice in graph:
             for vert in graph[vertice]:
