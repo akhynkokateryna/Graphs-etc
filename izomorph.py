@@ -33,7 +33,7 @@ def izomorph(graph1,graph2):
 
     
 
-if __name__=='__main__':
+# if __name__=='__main__':
     # import input
     # graph1=input.read_csv('/mnt/c/Users/user/Downloads/samoper_1.csv')
     # graph2=input.read_csv('/mnt/c/Users/user/Downloads/samoper_2.csv')
